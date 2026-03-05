@@ -22,3 +22,31 @@ The system also ensures **data integrity and correctness under concurrent reques
 ---
 
 # Project Structure
+inventory-system
+│
+├── src
+│ ├── controllers
+│ │ productController.js
+│ │ stockController.js
+│ │ orderController.js
+│ │
+│ ├── routes
+│ │ productRoutes.js
+│ │ stockRoutes.js
+│ │ orderRoutes.js
+│ │
+│ ├── services
+│ │ allocationService.js
+│ │
+│ ├── db
+│ │ prisma.js
+│ │
+│ └── app.js
+│
+├── prisma
+│ ├── schema.prisma
+│ └── migrations
+│
+├── package.json
+├── .env.example
+└── README.md
