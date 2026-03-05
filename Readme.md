@@ -78,11 +78,11 @@ This design enables accurate FIFO allocation and full traceability of inventory 
 
 ## 1. Clone the repository
 
----
+---https://github.com/bhavishykhandelwal/inventory-system.git
 
 ## 2. Install dependencies
 
----
+---npm install
 
 ## 3. Configure environment variables
 
