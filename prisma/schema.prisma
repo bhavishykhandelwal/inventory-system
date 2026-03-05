@@ -1,0 +1,52 @@
+
+
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Product {
+  id        Int      @id @default(autoincrement())
+  name      String
+  createdAt DateTime @default(now())
+
+  batches   StockBatch[]
+  orders    Order[]
+}
+
+model StockBatch {
+  id                Int      @id @default(autoincrement())
+  productId         Int
+  quantity          Int
+  remainingQuantity Int
+  receivedAt        DateTime @default(now())
+
+  product Product @relation(fields: [productId], references: [id])
+  allocations OrderAllocation[]
+}
+
+model Order {
+  id        Int      @id @default(autoincrement())
+  productId Int
+  quantity  Int
+  status    String
+  createdAt DateTime @default(now())
+
+  product Product @relation(fields: [productId], references: [id])
+  allocations OrderAllocation[]
+}
+
+model OrderAllocation {
+  id       Int @id @default(autoincrement())
+  orderId  Int
+  batchId  Int
+  quantity Int
+
+  order Order @relation(fields: [orderId], references: [id])
+  batch StockBatch @relation(fields: [batchId], references: [id])
+}
