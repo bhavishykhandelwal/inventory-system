@@ -94,7 +94,7 @@ Create a `.env` file using `.env.example`.
 
 ## 4. Run database migrations
 
----
+---npx prisma migrate dev
 
 ## 5. Start the server
 
